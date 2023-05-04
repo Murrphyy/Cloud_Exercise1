@@ -43,6 +43,9 @@ app.get('/api', (req, res) => {
       {method: 'GET', path: '/api', description: 'Describes all available endpoints'},
       {method: 'GET', path: '/api/profile', description: 'Data about me'},
       {method: 'GET', path: '/api/books/', description: 'Get All books information'},
+      {method: 'POST', path: '/api/books/', description: 'Add a book information'},
+      {method: 'PUT', path: '/api/books/:id', description: 'Update a book\'s information'},
+      {method: 'DELETE', path: '/api/books/:id', description: 'Delete a book\'s information'},
       // TODO: Write other API end-points description here like above
     ]
   })
@@ -153,9 +156,6 @@ app.delete('/api/books/:id', (req, res) => {
   
 });
 
-async function deleteBook(bookId){
-  return await BooksModel.findByIdAndDelete(bookId);
-}
 
 
 /**********
